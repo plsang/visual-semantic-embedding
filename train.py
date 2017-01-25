@@ -13,6 +13,10 @@ import warnings
 import sys
 import time
 
+import logging
+from datetime import datetime
+import argparse
+
 import homogeneous_data
 
 from theano.sandbox.rng_mrg import MRG_RandomStreams as RandomStreams
@@ -26,8 +30,11 @@ from evaluation import i2t, t2i
 from tools import encode_sentences, encode_images
 from datasets import load_dataset
 
+logger = logging.getLogger(__name__)
+
 # main trainer
 def trainer(data='coco',  #f8k, f30k, coco
+            feat='coco',
             margin=0.2,
             dim=1024,
             dim_image=4096,
@@ -40,7 +47,7 @@ def trainer(data='coco',  #f8k, f30k, coco
             maxlen_w=100,
             optimizer='adam',
             batch_size = 128,
-            saveto='/ais/gobi3/u/rkiros/uvsmodels/coco.npz',
+            saveto='data/models/coco.npz',
             validFreq=100,
             lrate=0.0002,
             reload_=False):
@@ -75,7 +82,7 @@ def trainer(data='coco',  #f8k, f30k, coco
 
     # Load training and development sets
     print 'Loading dataset'
-    train, dev = load_dataset(data)[:2]
+    train, dev = load_dataset(data, feat)[:2]
 
     # Create and save dictionary
     print 'Creating dictionary'
@@ -220,5 +227,22 @@ def trainer(data='coco',  #f8k, f30k, coco
         print 'Seen %d samples'%n_samples
 
 if __name__ == '__main__':
-    pass
+    start = datetime.now()
+
+    logging.basicConfig(level=logging.DEBUG, format='%(asctime)s:%(levelname)s: %(message)s')
+    argparser = argparse.ArgumentParser(description = "Convert format in clcv project to format of the visual semantic embedding project")
+    argparser.add_argument("dataset", type=str, default='coco', help="Type of features")
+    argparser.add_argument("feat", type=str, default='coco', help="Type of features")
+    argparser.add_argument("feat_dim", type=int, default=4096, help="Type of features")
+    argparser.add_argument("output_file", type=str, default='data/models/coco.npz', help="Model file")
+    args = argparser.parse_args()
+    logger.info(args)
+    
+    trainer(data=args.dataset, 
+            feat=args.feat, 
+            dim_image=args.feat_dim,
+            saveto=args.output_file)
+    
+    logger.info('done')
+    logger.info('Time: %s', datetime.now() - start)
 

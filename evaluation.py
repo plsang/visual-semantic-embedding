@@ -4,18 +4,24 @@ Evaluation code for multimodal-ranking
 import numpy
 
 from datasets import load_dataset
-from tools import encode_sentences, encode_images
+from tools import encode_sentences, encode_images, load_model
 
-def evalrank(model, data, split='dev'):
+import logging
+from datetime import datetime
+import argparse
+
+logger = logging.getLogger(__name__)
+
+def evalrank(model, data, feat, split='dev'):
     """
     Evaluate a trained model on either dev or test
     data options: f8k, f30k, coco
     """
     print 'Loading dataset'
     if split == 'dev':
-        X = load_dataset(data, load_train=False)[1]
+        X = load_dataset(data, feat, load_train=False)[1]
     else:
-        X = load_dataset(data, load_train=False)[2]
+        X = load_dataset(data, feat, load_train=False)[2]
 
     print 'Computing results...'
     ls = encode_sentences(model, X[0])
@@ -91,3 +97,22 @@ def t2i(images, captions, npts=None):
     r10 = 100.0 * len(numpy.where(ranks < 10)[0]) / len(ranks)
     medr = numpy.floor(numpy.median(ranks)) + 1
     return (r1, r5, r10, medr)
+
+if __name__ == '__main__':
+    start = datetime.now()
+
+    logging.basicConfig(level=logging.DEBUG, format='%(asctime)s:%(levelname)s: %(message)s')
+    argparser = argparse.ArgumentParser(description = "Convert format in clcv project to format of the visual semantic embedding project")
+    argparser.add_argument("dataset", type=str, default='coco', help="Type of features")
+    argparser.add_argument("feat", type=str, default='coco', help="Type of features")
+    argparser.add_argument("model", type=str, default='data/models/coco.npz', help="Path to the model")
+    argparser.add_argument("split", type=str, default='dev', help="Path to the model")
+    args = argparser.parse_args()
+    logger.info(args)
+    
+    model = load_model(path_to_model=args.model)
+    evalrank(model, args.dataset, args.feat, split=args.split)
+    
+    logger.info('done')
+    logger.info('Time: %s', datetime.now() - start)
+    
