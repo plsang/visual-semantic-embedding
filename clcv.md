@@ -4,5 +4,6 @@
 
   * Edit Makefile, update `COCO_DATA` path
   * Edit `FEATS` to set feature types
-  * `make train test`
+  * `make train GID=1`
+  * `make test GID=2`
   
