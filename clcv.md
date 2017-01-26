@@ -28,6 +28,6 @@
 | mydepsv4 (fc7) | 31.6 | 63.8 | 78.0 | 3 | 26.8 | 60.2 | 74.9 | 4 
 | mypasv4 (fc7) | 35.4 | 67.8 |  78.8 | 3 | 28.3 | 62.1 | 76.5 | 3
 | mypasprepv4 (fc7) | 32.8 | 68.1 | 79.6 | 3 | 27.7 | 62.4 | 77.3 | 3
-| myconceptsv3-mydepsv4 (concat) | - |  - | | |  |  |  | 
-| myconceptsv3-mypasv4 (concat) | - |  - |  | |  |  |  | 
-| myconceptsv3-mypasprepv4 (concat) | - |  - | - | - | - | - | - | -
+| myconceptsv3-mydepsv4 (concat) | 38.9 |  72.9 | 83.3 | 2 | 32.4 | 66.9 | 80.5 |  3 
+| myconceptsv3-mypasv4 (concat) |  41.6 | 73.9 | 84.7 | 2 | 33.8 | 67.3 | 80.6 | 3
+| myconceptsv3-mypasprepv4 (concat) | 41.2 |  75.3 | 84.1 | 2 | 33.1 | 67.3 | 80.0 | 3
