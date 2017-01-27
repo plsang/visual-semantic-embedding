@@ -32,7 +32,7 @@
 | myconceptsv3-mypasv4 (concat) |  41.6 | 73.9 | 84.7 | 2 | 33.8 | 67.3 | 80.6 | 3
 | myconceptsv3-mypasprepv4 (concat) | 41.2 |  75.3 | 84.1 | 2 | 33.1 | 67.3 | 80.0 | 3
 
-## Concept Maching baseline
+## Concept Matching baselines
 
   **MS COCO**
   Image to text -- Text to image
