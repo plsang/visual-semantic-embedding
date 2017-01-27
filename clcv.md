@@ -31,3 +31,15 @@
 | myconceptsv3-mydepsv4 (concat) | 38.9 |  72.9 | 83.3 | 2 | 32.4 | 66.9 | 80.5 |  3 
 | myconceptsv3-mypasv4 (concat) |  41.6 | 73.9 | 84.7 | 2 | 33.8 | 67.3 | 80.6 | 3
 | myconceptsv3-mypasprepv4 (concat) | 41.2 |  75.3 | 84.1 | 2 | 33.1 | 67.3 | 80.0 | 3
+
+## Concept Maching baseline
+
+  **MS COCO**
+  Image to text -- Text to image
+
+| Method | aR@1 | aR@5 | aR@10 | aMedr | sR@1 | sR@5 | sR@10 | sMedr |
+| ----- | :-----: | :-----: | :-----: | :-----: | :-----: | :-----: | :-----: | :-----: |
+| exconceptsv3 (fc8) | 11.2 | 29.3 | 43.5 | 14.0 | 18.3 | 44.9 | 59.6 | 7
+| exdepsv4 (fc8) | 5.9 | 20.5 | 31.6 | 24 | 9.3 | 29.1 | 43.0 | 14
+| expasv4 (fc8) |  | |  |  |  |  |  | 
+| expasprepv4 (fc8) |  |  |  | |  |  |  | 
