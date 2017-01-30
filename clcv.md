@@ -7,10 +7,9 @@
   * `make train GID=1`
   * `make test GID=2`
   
-## Results
+## Results on MS COCO dataset (Image to text -- Text to image)
 
-  **MS COCO**
-  Image to text -- Text to image
+### Using Joint Embedding
 
 | Method | aR@1 | aR@5 | aR@10 | aMedr | sR@1 | sR@5 | sR@10 | sMedr |
 | ----- | :-----: | :-----: | :-----: | :-----: | :-----: | :-----: | :-----: | :-----: |
@@ -32,9 +31,7 @@
 | myconceptsv3-mypasv4 (concat) |  41.6 | 73.9 | 84.7 | 2 | 33.8 | 67.3 | 80.6 | 3
 | myconceptsv3-mypasprepv4 (concat) | 41.2 |  75.3 | 84.1 | 2 | 33.1 | 67.3 | 80.0 | 3
 
-## Concept Matching baselines
-
-  **MS COCO** Image to text -- Text to image
+### Using Concept Matching
   * With feature normlization on image feature
 
 | Method | aR@1 | aR@5 | aR@10 | aMedr | sR@1 | sR@5 | sR@10 | sMedr |
@@ -43,7 +40,10 @@
 | exdepsv4 (fc8) | 5.9 | 20.5 | 31.6 | 24 | 9.3 | 29.1 | 43.0 | 14
 | expasv4 (fc8) | 7.2 | 21.9 | 34.1 | 25 | 8.9 | 28.3 | 42.9 | 14
 | expasprepv4 (fc8) | 6.5 | 21.4 | 32.8 | 24 | 8.4 | 28.2 | 43.0 | 14
-  
+| exconceptsv3-exdepsv4 (fc8) | 9.4 | 27.6 | 40.5 | 16 | 16.7 | 43.8 | 59.8 | 7
+| exconceptsv3-expasv4 (fc8) | 9.3 | 28.2 | 40.2 | 16 | 16.9 | 43.9 | 59.8 | 7
+| exconceptsv3-expasprepv4 (fc8) | 9.8 | 29.0 | 41.1 | 15 | 16.8 | 44.1 | 60.1 | 7
+
   * Without feature normlization on image feature
 
 | Method | aR@1 | aR@5 | aR@10 | aMedr | sR@1 | sR@5 | sR@10 | sMedr |
