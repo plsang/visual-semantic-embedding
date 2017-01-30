@@ -32,7 +32,7 @@
 | myconceptsv3-mypasprepv4 (concat) | 41.2 |  75.3 | 84.1 | 2 | 33.1 | 67.3 | 80.0 | 3
 
 ### Using Concept Matching
-  * With feature normlization on image feature
+  * With feature normlization on image features
 
 | Method | aR@1 | aR@5 | aR@10 | aMedr | sR@1 | sR@5 | sR@10 | sMedr |
 | ----- | :-----: | :-----: | :-----: | :-----: | :-----: | :-----: | :-----: | :-----: |
@@ -44,7 +44,7 @@
 | exconceptsv3-expasv4 (fc8) | 9.3 | 28.2 | 40.2 | 16 | 16.9 | 43.9 | 59.8 | 7
 | exconceptsv3-expasprepv4 (fc8) | 9.8 | 29.0 | 41.1 | 15 | 16.8 | 44.1 | 60.1 | 7
 
-  * Without feature normlization on image feature
+  * Without feature normlization on image features
 
 | Method | aR@1 | aR@5 | aR@10 | aMedr | sR@1 | sR@5 | sR@10 | sMedr |
 | ----- | :-----: | :-----: | :-----: | :-----: | :-----: | :-----: | :-----: | :-----: |
