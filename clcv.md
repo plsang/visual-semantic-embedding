@@ -34,8 +34,8 @@
 
 ## Concept Matching baselines
 
-  **MS COCO**
-  Image to text -- Text to image
+  **MS COCO** Image to text -- Text to image
+  * With feature normlization on image feature
 
 | Method | aR@1 | aR@5 | aR@10 | aMedr | sR@1 | sR@5 | sR@10 | sMedr |
 | ----- | :-----: | :-----: | :-----: | :-----: | :-----: | :-----: | :-----: | :-----: |
@@ -43,3 +43,15 @@
 | exdepsv4 (fc8) | 5.9 | 20.5 | 31.6 | 24 | 9.3 | 29.1 | 43.0 | 14
 | expasv4 (fc8) | 7.2 | 21.9 | 34.1 | 25 | 8.9 | 28.3 | 42.9 | 14
 | expasprepv4 (fc8) | 6.5 | 21.4 | 32.8 | 24 | 8.4 | 28.2 | 43.0 | 14
+  
+  * Without feature normlization on image feature
+
+| Method | aR@1 | aR@5 | aR@10 | aMedr | sR@1 | sR@5 | sR@10 | sMedr |
+| ----- | :-----: | :-----: | :-----: | :-----: | :-----: | :-----: | :-----: | :-----: |
+| exconceptsv3 (fc8) | 11.2 | 29.3 | 43.5 | 14 | 15.4 | 40.6 | 55.8 | 8
+| exdepsv4 (fc8) | 5.9 | 20.5 | 31.6 | 24 | 7.3 | 25.8 | 40.3 | 16
+| expasv4 (fc8) | 7.2 | 21.9 | 34.1 | 25 | 7.1 | 25.6 | 39.2 | 17
+| expasprepv4 (fc8) | 6.5 | 21.4 | 32.8 | 24 | 7.3 | 25.5 | 39.5 | 16
+| exconceptsv3-exdepsv4 (fc8) | 9.8 | 30.7 | 42.2 | 15 | 14.0 | 39.8 | 55.4 | 9
+| exconceptsv3-expasv4 (fc8) | 9.6 | 29.6 | 41.9 | 15 | 13.7 | 40.3 | 55.8 | 8
+| exconceptsv3-expasprepv4 (fc8) | 10.0 | 30.2 | 42.9 | 14 | 14.0 | 40.1 | 55.6 | 8
