@@ -22,7 +22,6 @@ if __name__ == '__main__':
     argparser.add_argument("feat_file", type=str, help="Feature provided by clcv project")
     argparser.add_argument("output_feat", type=str, help="Feature in vse format")
     argparser.add_argument("--split", type=str, default='train', help="split name")
-    argparser.add_argument("--max_dim", type=int, default=4096, help="max number of features")
     args = argparser.parse_args()
     
     logger.info(args)
@@ -42,8 +41,6 @@ if __name__ == '__main__':
     feats = {}
     h5f = h5py.File(args.feat_file, 'r')
     feat_size = h5f['data'].shape[1]
-    if feat_size > args.max_dim:
-        feat_size = args.max_dim
     
     logger.info('Reading features')
     for ii,image_id in enumerate(h5f['index']):

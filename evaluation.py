@@ -31,6 +31,11 @@ def evalrank(model, data, feat, split='dev'):
     print "Image to text: %.1f, %.1f, %.1f, %.1f" % (r1, r5, r10, medr)
     (r1i, r5i, r10i, medri) = t2i(lim, ls)
     print "Text to image: %.1f, %.1f, %.1f, %.1f" % (r1i, r5i, r10i, medri)
+    
+    out = {}
+    out['i2t'] = (r1, r5, r10, medr)
+    out['t2i'] = (r1i, r5i, r10i, medri)
+    return out
 
 def i2t(images, captions, npts=None):
     """
@@ -107,11 +112,16 @@ if __name__ == '__main__':
     argparser.add_argument("feat", type=str, default='coco', help="Type of features")
     argparser.add_argument("model", type=str, default='data/models/coco.npz', help="Path to the model")
     argparser.add_argument("split", type=str, default='dev', help="Path to the model")
+    argparser.add_argument("--output_json", type=str, default=None, help="Path to the output file")
     args = argparser.parse_args()
     logger.info(args)
     
     model = load_model(path_to_model=args.model)
-    evalrank(model, args.dataset, args.feat, split=args.split)
+    out = evalrank(model, args.dataset, args.feat, split=args.split)
+    
+    if args.output_json:
+        logger.info('Writing output to: %s', args.output_json)
+        json.dump(out, open(args.output_json, 'w'))
     
     logger.info('done')
     logger.info('Time: %s', datetime.now() - start)
