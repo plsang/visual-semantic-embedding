@@ -47,15 +47,15 @@ $(VSE_DATA)/depnet-vgg-myconceptsv3-mydepsv4-fc7_%_ims.npy: \
 	$(VSE_DATA)/depnet-vgg-myconceptsv3-fc7_%_ims.npy \
 	$(VSE_DATA)/depnet-vgg-mydepsv4-fc7_%_ims.npy
 	python concat_feature.py $^ $@
-$(VSE_DATA)/depnet-vgg-myconceptsv3_mydepsprepv4-fc7_%_ims.npy: \
+$(VSE_DATA)/depnet-vgg-myconceptsv3-mydepsprepv4-fc7_%_ims.npy: \
 	$(VSE_DATA)/depnet-vgg-myconceptsv3-fc7_%_ims.npy \
 	$(VSE_DATA)/depnet-vgg-mydepsprepv4-fc7_%_ims.npy
 	python concat_feature.py $^ $@
-$(VSE_DATA)/depnet-vgg-myconceptsv3_mypasv4-fc7_%_ims.npy: \
+$(VSE_DATA)/depnet-vgg-myconceptsv3-mypasv4-fc7_%_ims.npy: \
 	$(VSE_DATA)/depnet-vgg-myconceptsv3-fc7_%_ims.npy \
 	$(VSE_DATA)/depnet-vgg-mypasv4-fc7_%_ims.npy
 	python concat_feature.py $^ $@
-$(VSE_DATA)/depnet-vgg-myconceptsv3_mypasprepv4-fc7_%_ims.npy: \
+$(VSE_DATA)/depnet-vgg-myconceptsv3-mypasprepv4-fc7_%_ims.npy: \
 	$(VSE_DATA)/depnet-vgg-myconceptsv3-fc7_%_ims.npy \
 	$(VSE_DATA)/depnet-vgg-mypasprepv4-fc7_%_ims.npy
 	python concat_feature.py $^ $@
