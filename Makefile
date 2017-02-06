@@ -74,11 +74,11 @@ $(MODEL_DIR)/%/coco.npz: $(VSE_DATA)/%_train_ims.npy $(VSE_DATA)/%_dev_ims.npy $
 
 ### Testing
 
-test: $(patsubst %,test_%,$(FEATS))
-test_%: $(MODEL_DIR)/%/coco.npz \
+test: $(patsubst %,$(RESULT_DIR)/%_test_vse.json,$(FEATS))
+$(RESULT_DIR)/%_test_vse.json: $(MODEL_DIR)/%/coco.npz \
 	$(VSE_DATA)/%_test_ims.npy \
 	$(VSE_DATA)/coco_test_captions.txt
-	THEANO_FLAGS=device=gpu$(GID) python evaluation.py coco $* $< test
+	THEANO_FLAGS=device=gpu$(GID) python evaluation.py coco $* $< --split test --output_json $@
 
 
 ### CONCEPT/DEP MATCHING 

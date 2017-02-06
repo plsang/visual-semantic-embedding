@@ -9,6 +9,7 @@ from tools import encode_sentences, encode_images, load_model
 import logging
 from datetime import datetime
 import argparse
+import json
 
 logger = logging.getLogger(__name__)
 
@@ -111,7 +112,7 @@ if __name__ == '__main__':
     argparser.add_argument("dataset", type=str, default='coco', help="Type of features")
     argparser.add_argument("feat", type=str, default='coco', help="Type of features")
     argparser.add_argument("model", type=str, default='data/models/coco.npz', help="Path to the model")
-    argparser.add_argument("split", type=str, default='dev', help="Path to the model")
+    argparser.add_argument("--split", type=str, default='dev', help="Path to the model")
     argparser.add_argument("--output_json", type=str, default=None, help="Path to the output file")
     args = argparser.parse_args()
     logger.info(args)
