@@ -120,4 +120,7 @@ $(RESULT_DIR)/depnet-vgg-myconceptsv3-%-fc8_test_matching.json: \
 	THEANO_FLAGS=device=gpu$(GID) python dep_matching.py --pred $(word 1,$^) $(word 2,$^) \
 		--gold $(word 3,$^) $(word 4,$^) --output_json $@ --topk 5000
 
-
+#### COLLECT RESULTS
+collect_results:
+	python collect_results.py data/results data/results/output_vse.txt --feat fc7 --task vse
+	python collect_results.py data/results data/results/output_matching.txt --feat fc8 --task matching
